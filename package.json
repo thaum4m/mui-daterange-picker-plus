@@ -1,7 +1,7 @@
 {
   "name": "@thaum4m/mui-daterange-picker-plus",
   "private": false,
-  "version": "1.0.8",
+  "version": "1.0.9",
   "declaration": true,
   "outDir": "./",
   "include": [
@@ -26,18 +26,21 @@
     "type": "git",
     "url": "https://github.com/thaum4m/mui-daterange-picker-plus.git"
   },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.7",
     "@mui/material": "^5.15.7",
-    "date-fns": "^3.3.1",
-    "react": "^18.2.0"
+    "date-fns": "^3.3.1"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "@types/react": "^18.2.54",
-    "tsup": "^8.0.1",
+    "tsup": "^8.5.0",
     "typescript": "^5.3.3"
   },
   "keywords": [
