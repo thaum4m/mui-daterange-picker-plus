@@ -1,5 +1,5 @@
 {
-  "name": "mui-daterange-picker-plus",
+  "name": "@thaum4m/mui-daterange-picker-plus",
   "private": false,
   "version": "1.0.8",
   "declaration": true,
@@ -20,13 +20,12 @@
     "ci": "pnpm run lint && pnpm run build",
     "release": "pnpm run lint && pnpm run build && changeset publish"
   },
-  "author": "Miyushan Rodrigo <miyushanrodrigo@gmail.com>",
+  "author": "Peter Samaras <peter.m.samaras@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/miyushan/mui-daterange-picker-plus.git"
+    "url": "https://github.com/thaum4m/mui-daterange-picker-plus.git"
   },
-  "homepage": "https://mui-daterange-picker-plus-playground.vercel.app/demo",
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
