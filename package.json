@@ -18,7 +18,9 @@
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "lint": "tsc",
     "ci": "pnpm run lint && pnpm run build",
-    "release": "pnpm run lint && pnpm run build && changeset publish"
+    "release": "pnpm run lint && pnpm run build && changeset publish",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "author": "Peter Samaras <peter.m.samaras@gmail.com>",
   "license": "MIT",
@@ -39,7 +41,10 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
+    "@storybook/addon-docs": "^9.0.14",
+    "@storybook/react-vite": "^9.0.14",
     "@types/react": "^18.2.54",
+    "storybook": "^9.0.14",
     "tsup": "^8.5.0",
     "typescript": "^5.3.3"
   },
