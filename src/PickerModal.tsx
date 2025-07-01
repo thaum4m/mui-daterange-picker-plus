@@ -11,9 +11,15 @@ export const PickerModal = ({
   const isMobileView = useMediaQuery(theme.breakpoints.down("md"));
 
   if (isMobileView) {
-    const { open, onClose } = modalProps;
+    const { open, onClose, className, slotProps, sx } = modalProps;
     return (
-      <Dialog open={open} onClose={onClose}>
+      <Dialog
+        open={open}
+        onClose={onClose}
+        className={`is-mobile${className ? ` ${className}`: ''}`}
+        slotProps={slotProps}
+        sx={sx}
+      >
         <DateRangePicker
           {...dateRangePickerProps}
           customProps={customProps}

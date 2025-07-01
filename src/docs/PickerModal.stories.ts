@@ -19,3 +19,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Open: Story = {};
+
+export const OpenWithModalProps: Story = {
+  args: {
+    modalProps: {
+      open: true,
+      className: 'customize-picker-modal',
+      sx: {
+        border: '2px solid red',
+      },
+    }
+  },
+};
+
+
