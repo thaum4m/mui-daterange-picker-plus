@@ -1,7 +1,7 @@
 {
   "name": "@thaum4m/mui-daterange-picker-plus",
   "private": false,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "declaration": true,
   "outDir": "./",
   "include": [
