@@ -89,6 +89,33 @@ export const isRangeSameDay = ({ startDate, endDate }: DateRange) => {
   return false;
 };
 
+
+/**
+ * ? Determines whether a given day should be disabled in a date picker
+ * @param day date to evaluate
+ * @param currentDate current month reference date
+ * @param minDate minimum selectable date
+ * @param maxDate maximum selectable date
+ * @returns true if the day should be disabled, false otherwise
+ */
+export function isDayDisabled(
+  day: Date,
+  currentDate: Date,
+  minDate: Date,
+  maxDate: Date
+): boolean {
+  // Disable if the day is not in the same month as the current view
+  const notInSameMonth = !isSameMonth(currentDate, day);
+
+  // Disable if the day is not within the allowed interval AND not the start of the range
+  const notInRangeOrStart = !(
+    isWithinInterval(day, { start: minDate, end: maxDate }) ||
+    isStartOfRange({ startDate: minDate, endDate: maxDate }, day)
+  );
+
+  return notInSameMonth || notInRangeOrStart;
+}
+
 type Falsy = false | null | undefined | 0 | "";
 
 /**

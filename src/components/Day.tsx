@@ -6,6 +6,7 @@ type DayProps = {
   outlined?: boolean;
   highlighted?: boolean;
   disabled?: boolean;
+  nextDisabled?: boolean;
   hidden?: boolean;
   startOfRange?: boolean;
   endOfRange?: boolean;
@@ -19,6 +20,7 @@ export const Day: React.FunctionComponent<DayProps> = ({
   startOfRange,
   endOfRange,
   disabled,
+  nextDisabled,
   hidden,
   highlighted,
   outlined,
@@ -43,6 +45,13 @@ export const Day: React.FunctionComponent<DayProps> = ({
             ? alpha(theme.palette.primary.main, 0.1)
             : undefined,
       }}
+      {...({
+        className: `DRP-day${filled ?
+          ' DRP-day-filled' : ''}${!disabled && highlighted ?
+          ' DRP-day-highlighted' : ''}${disabled ?
+          ' DRP-day-disabled' : ''}${nextDisabled ?
+          ' DRP-day-next-disabled' : ''}`,
+      })}
     >
       <IconButton
         disableRipple

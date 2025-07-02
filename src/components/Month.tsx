@@ -20,6 +20,7 @@ import {
   isEndOfRange,
   inDateRange,
   isRangeSameDay,
+  isDayDisabled,
 } from "../utils";
 import { MonthHeader } from "./Month.Header";
 import { Day } from "./Day";
@@ -137,12 +138,17 @@ export const Month: React.FunctionComponent<MonthProps> = (
       >
         {chunks(getDaysInMonth(currentDate, locale), 7).map((week, idx) => (
           <Grid2 key={idx} container direction="row" justifyContent="center">
-            {week.map((day) => {
+            {week.map((day, index) => {
               const isStart = isStartOfRange(dateRange, day);
               const isEnd = isEndOfRange(dateRange, day);
               const isRangeOneDay = isRangeSameDay(dateRange);
               const highlighted =
                 inDateRange(dateRange, day) || helpers.isInHoverRange(day);
+              const disabled = isDayDisabled(day, currentDate, minDate, maxDate);
+
+              const nextDay = week[index+1];
+              const isNextDisabled = nextDay ?
+                isDayDisabled(nextDay, currentDate, minDate, maxDate): false;
 
               return (
                 <Day
@@ -150,19 +156,8 @@ export const Month: React.FunctionComponent<MonthProps> = (
                   filled={isStart || isEnd}
                   outlined={isToday(day)}
                   highlighted={highlighted && !isRangeOneDay}
-                  disabled={
-                    !isSameMonth(currentDate, day) ||
-                    !(
-                      isWithinInterval(day, { start: minDate, end: maxDate }) ||
-                      isStartOfRange(
-                        {
-                          startDate: minDate,
-                          endDate: maxDate,
-                        },
-                        day
-                      )
-                    )
-                  }
+                  disabled={disabled}
+                  nextDisabled={isNextDisabled}
                   hidden={!isSameMonth(currentDate, day)}
                   hideOutsideMonthDays={hideOutsideMonthDays}
                   startOfRange={isStart && !isRangeOneDay}
