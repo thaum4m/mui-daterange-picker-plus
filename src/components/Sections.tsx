@@ -176,6 +176,7 @@ export const Sections = (props: SectionsProps) => {
       <Grid2 xs container direction={"column"}>
         {/* Defined Ranges Selection ( MD- ) */}
         <Grid2
+          className="DRP-quick-select-header"
           display={{ xs: hideDefaultRanges ? "none" : "flex", md: "none" }}
           container
           height="48px"

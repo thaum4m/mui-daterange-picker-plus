@@ -38,6 +38,7 @@ export const DefinedRanges: React.FunctionComponent<DefinedRangesProps> = ({
     <>
       <Grid2 xs="auto">
         <Box
+          className="DRP-defined-ranges-header"
           height="54px"
           sx={{
             backgroundColor: alpha(theme.palette.grey[400], 0.1),

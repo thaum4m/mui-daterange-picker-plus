@@ -80,6 +80,7 @@ export const Month: React.FunctionComponent<MonthProps> = (
   return (
     <>
       <Grid2
+        className="DRP-month-header"
         container
         justifyContent="space-between"
         alignItems="center"
