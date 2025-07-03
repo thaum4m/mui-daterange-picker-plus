@@ -32,10 +32,8 @@ export const OpenWithModalProps: Story = {
   },
 };
 
-export const OpenWithCustomProps: Story = {
+export const OpenWithWeekdays: Story = {
   args: {
-    customProps: {
-      weekdays: ['S', 'S', 'M', 'T', 'W', 'T', 'F'],
-    }
+    weekdays: ['S', 'S', 'M', 'T', 'W', 'T', 'F'],
   },
 };
