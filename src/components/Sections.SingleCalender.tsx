@@ -25,7 +25,7 @@ type SingleCalenderProps = {
     };
   };
   locale?: Locale;
-
+  weekdays?: [string, string, string, string, string, string, string];
   hideOutsideMonthDays?: boolean;
 };
 
@@ -35,6 +35,7 @@ export const SingleCalender = ({
   handleSetSingleMonth,
   commonProps,
   locale,
+  weekdays,
   hideOutsideMonthDays,
 }: SingleCalenderProps) => {
   const canNavigateBack = !isSameMonth(firstMonth, commonProps.minDate);
@@ -59,6 +60,7 @@ export const SingleCalender = ({
           navState={[canNavigateBack, canNavigateForward]}
           marker={MARKERS.SINGLE_MONTH as symbol}
           locale={locale}
+          weekdays={weekdays}
           hideOutsideMonthDays={hideOutsideMonthDays}
         />
       </Grid2>

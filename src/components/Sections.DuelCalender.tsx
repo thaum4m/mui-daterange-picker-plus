@@ -26,7 +26,7 @@ type DuelCalenderProps = {
     };
   };
   locale?: Locale;
-
+  weekdays?: [string, string, string, string, string, string, string];
   hideOutsideMonthDays?: boolean;
 };
 
@@ -38,6 +38,7 @@ export const DuelCalender = ({
   canNavigateCloser,
   commonProps,
   locale,
+  weekdays,
   hideOutsideMonthDays,
 }: DuelCalenderProps) => {
   const canNavigateBack = !isSameMonth(firstMonth, commonProps.minDate);
@@ -62,6 +63,7 @@ export const DuelCalender = ({
           navState={[canNavigateBack, canNavigateCloser]}
           marker={MARKERS.FIRST_MONTH as symbol}
           locale={locale}
+          weekdays={weekdays}
           hideOutsideMonthDays={hideOutsideMonthDays}
         />
       </Grid2>
@@ -79,6 +81,7 @@ export const DuelCalender = ({
           navState={[canNavigateCloser, canNavigateForward]}
           marker={MARKERS.SECOND_MONTH as symbol}
           locale={locale}
+          weekdays={weekdays}
           hideOutsideMonthDays={hideOutsideMonthDays}
         />
       </Grid2>

@@ -21,6 +21,7 @@ import {
   inDateRange,
   isRangeSameDay,
   isDayDisabled,
+  getLocalizedWeekdays,
 } from "../utils";
 import { MonthHeader } from "./Month.Header";
 import { Day } from "./Day";
@@ -45,7 +46,7 @@ type MonthProps = {
     handleClickNavIcon: (marker: symbol, action: NavigationAction) => void;
   };
   locale?: Locale;
-
+  weekdays?: [string, string, string, string, string, string, string];
   hideOutsideMonthDays?: boolean;
 };
 
@@ -64,18 +65,11 @@ export const Month: React.FunctionComponent<MonthProps> = (
     minDate,
     maxDate,
     locale,
+    weekdays,
     hideOutsideMonthDays,
   } = props;
 
-  const weekStartsOn = locale?.options?.weekStartsOn || 0;
-  const WEEK_DAYS = Array.from({ length: 7 }, (_, index) =>
-    typeof locale !== "undefined"
-      ? locale.localize?.day(((index + weekStartsOn) % 7) as DayjsDay, {
-          width: "short",
-          context: "standalone",
-        })
-      : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][index]
-  );
+  const WEEK_DAYS = weekdays ? weekdays : getLocalizedWeekdays(locale);
   const [back, forward] = props.navState;
   return (
     <>
@@ -115,8 +109,14 @@ export const Month: React.FunctionComponent<MonthProps> = (
           margin: "16px 24px 0 24px",
         }}
       >
-        {WEEK_DAYS.map((day, index) => (
-          <Grid2 key={index} container width="36px" justifyContent={"center"}>
+        {WEEK_DAYS.map((day: string, index: number) => (
+          <Grid2
+            className="DRP-week-days-header"
+            key={index}
+            container
+            width="36px"
+            justifyContent={"center"}
+          >
             <Typography
               color="textSecondary"
               key={index}

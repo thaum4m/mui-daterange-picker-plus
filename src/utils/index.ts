@@ -14,7 +14,7 @@ import {
   min,
   max,
 } from "date-fns";
-import type { Locale } from "date-fns";
+import type { Day, Locale } from "date-fns";
 import type { DateRange } from "../types/utils";
 
 /**
@@ -157,4 +157,22 @@ export const getValidatedMonths = (
     ];
   }
   return [startDate, endDate];
+};
+
+/**
+ * ? Returns an array of localized weekday names in short format
+ * @param locale optional locale to use for localization
+ * @param weekStartsOn index of the first day of the week (0 = Sunday, 1 = Monday, etc.)
+ * @returns array of 7 localized weekday names starting from weekStartsOn
+ */
+export const getLocalizedWeekdays = (locale?: Locale): [string, string, string, string, string, string, string] => {
+  const weekStartsOn = locale?.options?.weekStartsOn || 0;
+  return Array.from({ length: 7 }, (_, index) =>
+    typeof locale !== "undefined" && locale.localize?.day
+      ? locale.localize?.day(((index + weekStartsOn) % 7) as Day, {
+          width: "short",
+          context: "standalone",
+        })
+      : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][index] as string
+  );
 };

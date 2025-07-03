@@ -44,6 +44,7 @@ type SectionsProps = {
     handleClickNavIcon: (marker: symbol, action: NavigationAction) => void;
   };
   locale?: Locale;
+  weekdays?: [string, string, string, string, string, string, string];
   labels?: Labels;
 
   hideActionButtons?: boolean;
@@ -73,6 +74,7 @@ export const Sections = (props: SectionsProps) => {
     helpers,
     handlers,
     locale,
+    weekdays,
     labels,
 
     hideActionButtons = false,
@@ -272,6 +274,7 @@ export const Sections = (props: SectionsProps) => {
             commonProps={commonProps}
             hideOutsideMonthDays={hideOutsideMonthDays}
             locale={locale}
+            weekdays={weekdays}
           />
         </Grid2>
 
@@ -286,6 +289,7 @@ export const Sections = (props: SectionsProps) => {
             commonProps={commonProps}
             hideOutsideMonthDays={hideOutsideMonthDays}
             locale={locale}
+            weekdays={weekdays}
           />
         </Grid2>
 

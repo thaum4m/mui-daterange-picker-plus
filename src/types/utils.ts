@@ -34,6 +34,7 @@ export type PickerProps = {
   minDate?: Date | string;
   maxDate?: Date | string;
   locale?: Locale;
+  weekdays?: [string, string, string, string, string, string, string];
   labels?: Labels;
   onChange?: (dateRange: DateRange) => void;
 
