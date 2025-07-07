@@ -7,7 +7,7 @@ import {
   Select,
   useTheme,
   Typography,
-  Unstable_Grid2 as Grid2,
+  Grid as Grid2,
 } from "@mui/material";
 import type { SelectChangeEvent } from "@mui/material";
 import {
@@ -167,7 +167,7 @@ export const MonthHeader = ({
         </IconButton>
       </Grid2>
 
-      <Grid2 xsOffset={"auto"} xs={"auto"} container>
+      <Grid2 xs={"auto"} container>
         <FormControl>
           <Select
             SelectDisplayProps={{
@@ -231,7 +231,7 @@ export const MonthHeader = ({
         </FormControl>
       </Grid2>
 
-      <Grid2 xsOffset={"auto"} xs="auto" container>
+      <Grid2 xs="auto" container>
         <FormControl>
           <Select
             variant="outlined"
@@ -300,7 +300,7 @@ export const MonthHeader = ({
         </FormControl>
       </Grid2>
 
-      <Grid2 mr="10px" xsOffset={"auto"} xs="auto" container>
+      <Grid2 mr="10px" xs="auto" container>
         <IconButton
           disableRipple
           size="small"

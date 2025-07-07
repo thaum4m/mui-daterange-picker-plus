@@ -29,21 +29,21 @@
     "url": "https://github.com/thaum4m/mui-daterange-picker-plus.git"
   },
   "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.15.7",
-    "@mui/material": "^5.15.7",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.1.0",
+    "@mui/material": "^7.1.0",
     "date-fns": "^3.3.1"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "@storybook/addon-docs": "^9.0.14",
     "@storybook/react-vite": "^9.0.14",
-    "@types/react": "^18.2.54",
+    "@types/react": "^19.1.5",
     "storybook": "^9.0.14",
     "tsup": "^8.5.0",
     "typescript": "^5.3.3"
