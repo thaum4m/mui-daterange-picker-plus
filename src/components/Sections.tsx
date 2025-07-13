@@ -191,6 +191,7 @@ export const Sections = (props: SectionsProps) => {
             container
             justifyContent={"space-between"}
             alignItems={"center"}
+            sx={{ flexGrow: 1 }}
           >
             <Typography
               sx={{
