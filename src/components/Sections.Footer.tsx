@@ -38,6 +38,7 @@ type FooterProps = {
   endDate?: Date;
   locale?: Locale;
   labels?: Labels;
+  singleCalendar?: boolean;
 } & Omit<ModalCustomProps, "onSubmit"> & {
     onSubmit: () => void;
   };
@@ -50,6 +51,7 @@ export const Footer = ({
   onCloseCallback,
   onSubmit,
   RangeSeparatorIcons,
+  singleCalendar,
 }: FooterProps) => {
   const theme = useTheme();
   const previewDate = (date: Date) => {
@@ -63,11 +65,12 @@ export const Footer = ({
     <>
       <Grid2
         xs
+        className="DRP-footer-preview-date"
         container
         gap={"8px"}
         direction={{
           xs: "column",
-          md: "row",
+          md: singleCalendar ? "column" : "row",
         }}
         justifyContent="flex-start"
         alignItems={"center"}
@@ -98,7 +101,7 @@ export const Footer = ({
             fill: theme.palette.grey[400],
             display: {
               xs: "block",
-              md: "none",
+            md: singleCalendar ? "block" : "none",
             },
           }}
         />
@@ -109,7 +112,7 @@ export const Footer = ({
             fill: theme.palette.grey[400],
             display: {
               xs: "none",
-              md: "block",
+            md: singleCalendar ? "none" : "block",
             },
           }}
         />

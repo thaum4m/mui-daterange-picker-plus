@@ -174,5 +174,5 @@ export const getLocalizedWeekdays = (locale?: Locale): [string, string, string, 
           context: "standalone",
         })
       : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][index] as string
-  );
+  ) as [string, string, string, string, string, string, string];
 };

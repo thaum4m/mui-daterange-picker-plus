@@ -4,9 +4,8 @@ import {
   isSameMonth,
   isToday,
   format,
-  isWithinInterval,
 } from "date-fns";
-import type { Locale, Day as DayjsDay } from "date-fns";
+import type { Locale } from "date-fns";
 import {
   Typography,
   useTheme,
@@ -69,7 +68,12 @@ export const Month: React.FunctionComponent<MonthProps> = (
     hideOutsideMonthDays,
   } = props;
 
-  const WEEK_DAYS = weekdays ? weekdays : getLocalizedWeekdays(locale);
+  let WEEK_DAYS = weekdays ? weekdays : getLocalizedWeekdays(locale);
+  if (!weekdays && locale?.options?.weekStartsOn) {
+    const start = locale.options.weekStartsOn;
+    WEEK_DAYS = [...WEEK_DAYS.slice(start), ...WEEK_DAYS.slice(0, start)] as [string, string, string, string, string, string, string];
+  }
+
   const [back, forward] = props.navState;
   return (
     <>

@@ -34,6 +34,13 @@ export const OpenWithModalProps: Story = {
 
 export const OpenWithWeekdays: Story = {
   args: {
-    weekdays: ['S', 'S', 'M', 'T', 'W', 'T', 'F'],
+    // Days should be provided in this order:
+    weekdays: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+  },
+};
+
+export const OpenWithSingleCalendar: Story = {
+  args: {
+    singleCalendar: true,
   },
 };

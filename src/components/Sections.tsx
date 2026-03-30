@@ -50,6 +50,7 @@ type SectionsProps = {
   hideActionButtons?: boolean;
   hideDefaultRanges?: boolean;
   hideOutsideMonthDays?: boolean;
+  singleCalendar?: boolean;
   RangeSeparatorIcons?: {
     xs?: ElementType<SvgIconProps>;
     md?: ElementType<SvgIconProps>;
@@ -80,6 +81,7 @@ export const Sections = (props: SectionsProps) => {
     hideActionButtons = false,
     hideDefaultRanges = false,
     hideOutsideMonthDays,
+    singleCalendar,
     RangeSeparatorIcons,
     onCloseCallback,
     footerRequired,
@@ -145,6 +147,7 @@ export const Sections = (props: SectionsProps) => {
 
   return (
     <Grid2
+    className="DRP-sections-container"
       container
       sx={{
         borderRadius: "16px",
@@ -265,8 +268,8 @@ export const Sections = (props: SectionsProps) => {
           <Divider />
         </Grid2>
 
-        {/* Dual Calender ( MD- ) */}
-        <Grid2 container display={{ xs: "flex", md: "none" }}>
+        {/* Single Calender */}
+        <Grid2 container display={{ xs: "flex", md: singleCalendar ? "flex" : "none" }}>
           <SingleCalender
             firstMonth={firstMonth}
             secondMonth={secondMonth}
@@ -278,9 +281,7 @@ export const Sections = (props: SectionsProps) => {
             weekdays={weekdays}
           />
         </Grid2>
-
-        {/* Dual Calender ( MD+ ) */}
-        <Grid2 flex={1} display={{ xs: "none", md: "flex" }} container>
+        <Grid2 flex={1} display={{ xs: "none", md: singleCalendar ? "none" : "flex" }} container>
           <DuelCalender
             firstMonth={firstMonth}
             secondMonth={secondMonth}
@@ -330,6 +331,7 @@ export const Sections = (props: SectionsProps) => {
                 onCloseCallback={onCloseCallback}
                 onSubmit={handlers.handleClickSubmit}
                 RangeSeparatorIcons={RangeSeparatorIcons}
+                singleCalendar={singleCalendar}
               />
             </Grid2>
           </>

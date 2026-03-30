@@ -43,6 +43,7 @@ export const SingleCalender = ({
 
   return (
     <Grid2
+      className="DRP-single-calendar-container"
       xs={12}
       container
       direction={{
