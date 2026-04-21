@@ -44,3 +44,10 @@ export const OpenWithSingleCalendar: Story = {
     singleCalendar: true,
   },
 };
+
+export const OpenWithInitialDate: Story = {
+  args: {
+    initialDate: new Date(2025, 0),
+    singleCalendar: true,
+  },
+};

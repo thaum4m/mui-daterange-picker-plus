@@ -30,6 +30,7 @@ export const useDateRangePicker = (props: useDateRangePickerProps) => {
     onChange: onChangeCallback,
     onSubmit: onSubmitCallback,
     initialDateRange,
+    initialDate,
     minDate,
     maxDate,
     definedRanges = getDefaultRanges(new Date(), props.locale),
@@ -50,7 +51,7 @@ export const useDateRangePicker = (props: useDateRangePickerProps) => {
   });
   const [hoverDay, setHoverDay] = useState<Date>();
   const [firstMonth, setFirstMonth] = useState<Date>(
-    initialFirstMonth || today
+    initialFirstMonth || initialDate || today
   );
   const [secondMonth, setSecondMonth] = useState<Date>(
     initialSecondMonth || addMonths(firstMonth, 1)

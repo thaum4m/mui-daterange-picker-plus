@@ -30,6 +30,7 @@ export type RangeSeparatorIconsProps = {
 
 export type PickerProps = {
   initialDateRange?: DateRange;
+  initialDate?: Date;
   definedRanges?: DefinedRange[];
   minDate?: Date | string;
   maxDate?: Date | string;
@@ -37,7 +38,6 @@ export type PickerProps = {
   weekdays?: [string, string, string, string, string, string, string];
   labels?: Labels;
   onChange?: (dateRange: DateRange) => void;
-
   hideDefaultRanges?: boolean;
   hideOutsideMonthDays?: boolean;
   singleCalendar?: boolean;
